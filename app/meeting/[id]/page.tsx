@@ -2,6 +2,7 @@ import { getStorage } from "@/lib/storage";
 import { notFound } from "next/navigation";
 import AddStoryForm from "@/components/AddStoryForm";
 
+export const dynamic = "force-dynamic"; 
 export default async function MeetingDetailPage({ params }: { params: { id: string } }) {
   const storage = await getStorage();
   const meeting = await storage.getMeeting(params.id);
