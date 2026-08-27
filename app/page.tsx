@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getStorage } from "@/lib/storage";
 
+export const dynamic = "force-dynamic"; 
 export default async function HomePage() {
   const storage = await getStorage();
   const results = await storage.search({});
