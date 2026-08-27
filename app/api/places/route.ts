@@ -3,6 +3,7 @@ import { getStorage } from "@/lib/storage";
 import { Place } from "@/lib/types";
 import { nanoid } from "nanoid";
 
+export const dynamic = "force-dynamic";
 export async function GET() {
   const storage = await getStorage();
   const places = await storage.listPlaces();
