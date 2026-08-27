@@ -1,6 +1,7 @@
 import { getStorage } from "@/lib/storage";
 import MeetingForm from "@/components/MeetingForm";
 
+export const dynamic = "force-dynamic"; 
 export default async function NewMeetingPage() {
   const storage = await getStorage();
   const [people, places, categories] = await Promise.all([
