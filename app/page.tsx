@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { getStorage } from "@/lib/storage";
 
-export const dynamic = "force-dynamic"; 
+export const dynamic = "force-dynamic";
+
 export default async function HomePage() {
   const storage = await getStorage();
   const results = await storage.search({});
@@ -11,10 +12,7 @@ export default async function HomePage() {
     <div>
       <div className="flex items-center justify-between mb-6">
         <h1 className="text-xl font-medium">최근 모임</h1>
-        <Link
-          href="/new"
-          className="text-sm px-3 py-2 bg-[#2b2a26] text-white rounded-lg no-underline"
-        >
+        <Link href="/new" className="text-sm px-3 py-2 bg-[#2b2a26] text-white rounded-lg no-underline">
           + 새 모임 기록
         </Link>
       </div>
@@ -33,14 +31,10 @@ export default async function HomePage() {
                 <span className="font-medium">
                   {m.date} {m.time}
                 </span>
-                {m.amount != null && (
-                  <span className="text-sm text-[#7a7768]">{m.amount.toLocaleString()}원</span>
-                )}
+                {m.amount != null && <span className="text-sm text-[#7a7768]">{m.amount.toLocaleString()}원</span>}
               </div>
               <p className="text-sm text-[#7a7768] mb-1">{m.place?.name}</p>
-              <p className="text-sm text-[#7a7768]">
-                {m.attendees.map((a) => a.name).join(", ")}
-              </p>
+              <p className="text-sm text-[#7a7768]">{m.attendees.map((a) => a.name).join(", ")}</p>
             </Link>
           </li>
         ))}
